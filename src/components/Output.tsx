@@ -15,12 +15,15 @@ function Output({ reelData }: any) {
         try {
             // Create an anchor element
             const a = document.createElement("a");
-            
+            const currentDate = new Date();
+            const formattedDate = currentDate.toISOString().slice(0, 19).replace(/:/g, '-');
+            const fileName = `rd_insta_${formattedDate}.mp4`;
             a.href = url;
-            a.download = "reel.mp4";
+            a.download = fileName;
             a.click();
         } catch (error) {
             console.error("Error initiating download:", error);
+            setIsDownloading(false);
         } finally {
             setIsDownloading(false);
         }
