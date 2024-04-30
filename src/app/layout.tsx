@@ -53,7 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Add more Twitter meta tags as needed */}
 
         {/* Canonical link */}
-        <link rel="canonical" href="https://yourwebsite.com" />
+        <link rel="canonical" href="https://661bb5c4b70e8b54fb959b80--rdi.netlify.app/" />
       </Head>
       <body className={inter.className}>
         {children}
