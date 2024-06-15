@@ -17,13 +17,13 @@ function Output({ reelData }: any) {
             const a = document.createElement("a");
             const currentDate = new Date();
             const formattedDate = currentDate.toISOString().slice(0, 19).replace(/:/g, '-');
-            const fileName = `rd_insta_${formattedDate}.mp4`;
+            const randomString = Math.random().toString(36).substring(2, 8);
+            const fileName = `rd_insta_${formattedDate}_${randomString}.mp4`;
             a.href = url;
             a.download = fileName;
             a.click();
         } catch (error) {
             console.error("Error initiating download:", error);
-            setIsDownloading(false);
         } finally {
             setIsDownloading(false);
         }
@@ -48,7 +48,7 @@ function Output({ reelData }: any) {
             <button
                 disabled={isDownloading}
                 onClick={() => downloadBtn(reelData?.links[0]?.link)}
-                className={`inline-flex w-full h-12 items-center justify-center rounded-md border border-slate-800 bg-gradient-to-r from-gray-900 to-gray-800 px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ${isDownloading ? 'opacity-50 cursor-not-allowed' : ''} md:w-[200px]`}
+                className={`inline-flex w-full h-12 items-center justify-center rounded-md border border-slate-800 bg-gradient-to-r from-gray-900 to-gray-800 px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ${isDownloading && 'opacity-50 cursor-not-allowed' } md:w-[200px]`}
             >
                 {isDownloading ? 'Downloading...' : 'Download'}
             </button>

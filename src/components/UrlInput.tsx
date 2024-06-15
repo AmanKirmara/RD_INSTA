@@ -17,7 +17,6 @@ function UrlInput({ setReelData }: UrlInputProps) {
         const res = await reelsapi(inputUrl);
         setReelData(res?.data);
     };
-
     return (
         <div className="w-full !mx-auto mt-20 rounded-2xl bg-gray-900/40 p-2 backdrop-blur-sm md:w-[70vw] sm:w-[95vw] xs:w-[90vw]md:mt-5 md:mx-0">
             <form
@@ -43,6 +42,7 @@ function UrlInput({ setReelData }: UrlInputProps) {
         </div>
     );
 }
+
 
 const BottomGradient = () => {
     return (
